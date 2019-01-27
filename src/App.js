@@ -1,28 +1,50 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header'
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Blog from './demo/blog/Blog'
+import Pricing from './demo/pricing/Pricing'
+import Dashboard from './demo/dashboard/Dashboard'
+import { Route, Link } from "react-router-dom";
+
+const Index = () => (
+    <nav>
+        <ul>
+            <li>
+                <Link to="/menu">测试menu</Link>
+            </li>
+            <li>
+                <Link to="/menupro">测试menupro</Link>
+            </li>
+            <li>
+                <Link to="/blog">官网demo1-blog</Link>
+            </li>
+            <li>
+                <Link to="/pricing">官网demo2-pricing</Link>
+            </li>
+            <li>
+                <Link to="/dashboard">官网demo3-dashboard</Link>
+            </li>
+        </ul>
+    </nav>
+)
+
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+
+    render() {
+        return (
+            <React.Fragment>
+                <CssBaseline />
+                <Route path="/" exact component={Index} />
+                <Route path="/menu" exact component={Header} />
+                <Route path="/blog" exact component={Blog} />
+                <Route path="/pricing" exact component={Pricing} />
+                <Route path="/dashboard" exact component={Dashboard} />
+               
+            </React.Fragment>
+        );
+    }
 }
 
 export default App;
